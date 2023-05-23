@@ -1,0 +1,28 @@
+{
+  "name": "cubingbot",
+  "version": "1.0.0",
+  "description": "L'objectif est de créer un bot Discord multifonction et customisable.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@keyv/sqlite": "^3.6.5",
+    "@types/puppeteer": "^7.0.4",
+    "canvas": "^2.11.2",
+    "cube-solver": "^2.4.1",
+    "cubing": "^0.36.2",
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "keyv": "^4.5.2",
+    "puppeteer": "^20.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.2.1",
+    "typescript": "^5.0.4"
+  }
+}
