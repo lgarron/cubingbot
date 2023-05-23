@@ -5,4 +5,5 @@ Create a .env in /config.
 ```
 TOKEN=(removed)
 GUILD_ID=(complete with yours)
-BOT_ID=(complete with yours)```
+BOT_ID=(complete with yours)
+```
