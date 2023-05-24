@@ -120,7 +120,7 @@ const commandFunction = async function (interaction: Interaction): Promise<null>
             // If image generation succeded, imageBuffer won't be null
             if (imageBuffer === null) {
                 const errorEmbed: EmbedBuilder = new EmbedBuilder({
-                    description: `La génération de l'image a échoué.`,
+                    description: `Image generation failed.`,
                     color: embedColor
                 });
 
@@ -141,7 +141,7 @@ const commandFunction = async function (interaction: Interaction): Promise<null>
 
             const differenceTimestamp = endTimestamp - startTimestamp;
             const embed: EmbedBuilder = new EmbedBuilder({
-                description: bold(`Image generated in ${(differenceTimestamp / 1000).toFixed(3)} seconds!\nThis bot is an open-source project. See the GitHub repo for more info!`),
+                description: bold(`Image generated in ${(differenceTimestamp / 1000).toFixed(3)} seconds!`),
                 color: embedColor
             });
 

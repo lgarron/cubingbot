@@ -122,7 +122,7 @@ const commandFunction = async function (interaction: Interaction): Promise<null>
 
         if (solveAlgorithm) {
             const embed: EmbedBuilder = new EmbedBuilder({
-                description: `Solution to the scramble is: ${bold(solveAlgorithm)}` + `\n` + bold(`Solution calculated in ${(differenceTimestamp/1000).toFixed(3)} seconds!\nThis bot is an open-source project. See the GitHub repo for more info!`),
+                description: `Solution to the scramble is: ${bold(solveAlgorithm)}` + `\n` + bold(`Solution calculated in ${(differenceTimestamp/1000).toFixed(3)} seconds!`),
                 color: embedColor
             });
 

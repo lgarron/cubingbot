@@ -98,7 +98,7 @@ const commandFunction = async function (interaction: Interaction): Promise<null>
         if (Array.isArray(scramble)) scramble = scramble.join("\n");
 
         const embed: EmbedBuilder = new EmbedBuilder({
-            description: `A scramble for this event is: ${bold(scramble)}` + `\n` + bold(`Scramble(s) generated in ${(differenceTimestamp / 1000).toFixed(3)} seconds!\nThis bot is an open-source project. See the GitHub repo for more info!`),
+            description: `A scramble for this event is: ${bold(scramble)}` + `\n` + bold(`Scramble(s) generated in ${(differenceTimestamp / 1000).toFixed(3)} seconds!`),
             color: embedColor
         });
 
