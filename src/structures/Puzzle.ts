@@ -321,15 +321,11 @@ export class Puzzle {
 
     constructor(type: PuzzleType = "3x3x3", initialAlgorithm: string = "") {
         this.type = type;
-        this._algorithm = initialAlgorithm;
+        this._algorithm = initialAlgorithm.trim();
     }
 
     get algorithm(): string {
         return this._algorithm;
-    }
-
-    get state(): string {
-        return "";
     }
 
     solve(): string | null {
@@ -341,15 +337,13 @@ export class Puzzle {
         return null;
     }
 
-    addMoves(moves: string): string | null {
+    addMoves(moves: string)  {
         const convertedMoves: string | null = Puzzle.convertToAlgorithm(moves, this.type);
-        if (convertedMoves) {
-            this._algorithm = this._algorithm + " " + convertedMoves;
-        }
-        return Puzzle.convertToAlgorithm(this.algorithm, this.type);
+        if (convertedMoves) this._algorithm = `${this._algorithm} ${convertedMoves}`.trim();
     }
 
-    /*private async _scramble(blinfolded: boolean = false, multiblindfolded: boolean = false, onehanded: boolean = false): Promise<string | string[] | null> {
+    /*
+    private async _scramble(blinfolded: boolean = false, multiblindfolded: boolean = false, onehanded: boolean = false): Promise<string | string[] | null> {
         // Clock scrambles aren't implemented (yet?)
         if(this.type === "clock") return null;
 
@@ -437,6 +431,7 @@ export class Puzzle {
         */
     }
 
+    // I think there's a better way to do that.
     async getImages(size: number): Promise<string[]> {
         // This scripts contains a function that takes screenshots of the puzzle using a TwistyPlayer from cubing.js
         const script: string = fs.readFileSync(
@@ -447,7 +442,7 @@ export class Puzzle {
         // Create a browser instance & load the script.
         const browser: Browser = await puppeteer.launch({
             headless: 'new',
-            timeout: 60_000
+            timeout: 90_000
         });
 
         const page: Page = await browser.newPage();
