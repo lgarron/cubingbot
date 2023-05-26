@@ -1,0 +1,11 @@
+<script type="module">
+    import { randomScrambleForEvent } from "https://cdn.cubing.net/js/cubing/scramble";
+
+    const scramble = randomScrambleForEvent("clock")
+        .then(scramble => scramble.toString())
+        .catch(err => console.error(err));
+
+    // I want scramble to be scramble.toString(), not a Promise that resolves into that.
+
+    console.log(scramble);
+</script>
