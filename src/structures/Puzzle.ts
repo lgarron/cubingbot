@@ -3,8 +3,8 @@ import fs from "fs";
 import puppeteer, { Browser, Page } from "puppeteer";
 
 // https://github.com/cubing/cubing.js/issues/271
-//import { randomScrambleForEvent } from "https://cdn.cubing.net/js/cubing/scramble";
-//import { Alg } from "https://cdn.cubing.net/js/cubing/alg";
+import { randomScrambleForEvent } from "cubing/scramble";
+import { Alg } from "cubing/alg";
 
 // Problems with the cubing package. _scramble and scramble function have been removed
 // till I somehow find a way to make it work.
@@ -342,7 +342,6 @@ export class Puzzle {
         if (convertedMoves) this._algorithm = `${this._algorithm} ${convertedMoves}`.trim();
     }
 
-    /*
     private async _scramble(blinfolded: boolean = false, multiblindfolded: boolean = false, onehanded: boolean = false): Promise<string | string[] | null> {
         // Clock scrambles aren't implemented (yet?)
         if(this.type === "clock") return null;
@@ -418,20 +417,18 @@ export class Puzzle {
 
         // Type doesn't have a scramble method.
         return null;
-    }*/
+    }
 
     scramble(blindfolded: boolean, multiblindolded: boolean, onehanded: boolean): string[] | string | null {
-        return null;
-        /*
         let scramble: string[] | string | null = null;
         this._scramble(blindfolded, multiblindolded, onehanded)
             .then(s => scramble = s)
             .catch(err => console.error(err));
         return scramble;
-        */
     }
 
-    // I think there's a better way to do that.
+    // This is the sketchy bit, normally, it should import the { TwistyPlayer }  and do everything
+    // from there. But hey, it works, so let's not worry about it (for now).
     async getImages(size: number): Promise<string[]> {
         // This scripts contains a function that takes screenshots of the puzzle using a TwistyPlayer from cubing.js
         const script: string = fs.readFileSync(
