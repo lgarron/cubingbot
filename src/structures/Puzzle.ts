@@ -2,6 +2,7 @@ import { randomScrambleForEvent } from "cubing/scramble";
 import { Alg } from "cubing/alg";
 
 // Puzzle types as they are defined in cubing/twisty.
+// That is because cubing/twisty is used through a sketchy workaround (it also cannot be used normally like cubing/scramble).
 export type PuzzleType = "2x2x2" | "3x3x3" | "4x4x4" | "5x5x5" | "6x6x6" | "7x7x7" | "pyraminx" | "skewb" | "clock" | "square1" | "megaminx";
 
 export interface PuzzleEquivalenceTable {
