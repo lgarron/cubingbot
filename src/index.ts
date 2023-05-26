@@ -1,10 +1,10 @@
 // We define a simple example.
 
-import { SimplePuzzle } from "./structures/Puzzle";
+import { SimplePuzzle } from "./structures/Puzzle.js";
 
-function main() {
+async function main() {
     const myPuzzle: SimplePuzzle = new SimplePuzzle("3x3x3");
-    const myScramble: string | null = myPuzzle.scramble(false, false, false);
+    const myScramble: string | null = await myPuzzle.scramble(false, false, false);
 
     if (myScramble) return console.log(myScramble);
     console.log("Failed to generate a scramble.");

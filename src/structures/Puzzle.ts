@@ -129,14 +129,12 @@ export class SimplePuzzle {
         return null;
     }
 
-    public scramble(isBlindfolded: boolean = false, isMultiBlindfolded: boolean = false, isOneHanded: boolean = false): string | null {
-        let scramble: string | null = null;
-        this._scramble(isBlindfolded, isMultiBlindfolded, isOneHanded)
-            .then(generatedScramble => {
-                if(Array.isArray(generatedScramble)) scramble = generatedScramble.join("\n");
-                if(typeof generatedScramble === "string") scramble = generatedScramble;
-            })
-            .catch(err => console.error(err));
-        return scramble;
-    }    
+    public async scramble(isBlindfolded: boolean = false, isMultiBlindfolded: boolean = false, isOneHanded: boolean = false): Promise<string | null> {
+        const generatedScramble = await this._scramble(isBlindfolded, isMultiBlindfolded, isOneHanded);
+        if (generatedScramble == null) {
+            return null;
+        }
+        if(Array.isArray(generatedScramble)) return generatedScramble.join("\n");
+        return generatedScramble;
+    }
 }
