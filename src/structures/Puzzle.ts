@@ -3,11 +3,10 @@ import fs from "fs";
 import puppeteer, { Browser, Page } from "puppeteer";
 
 // https://github.com/cubing/cubing.js/issues/271
+// Currently, these imports are for the _scramble() method.
+// If I find a way to make cubing.js work, the library shall also be used for the getImages() method.
 import { randomScrambleForEvent } from "cubing/scramble";
 import { Alg } from "cubing/alg";
-
-// Problems with the cubing package. _scramble and scramble function have been removed
-// till I somehow find a way to make it work.
 
 import { solve, initialize } from 'cube-solver';
 import { convertMoveToValidMove } from "../helpers/convertMoveToValidMove";
